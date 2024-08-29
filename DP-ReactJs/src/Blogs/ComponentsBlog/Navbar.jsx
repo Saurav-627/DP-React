@@ -1,17 +1,18 @@
 import "../ComponentsBlog/Navbar.css";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div>
           <nav className="navbar">
         <div className="navbar-logo">
-            <a href="#">Blogs</a>
+            <NavLink to="/">Blogs</NavLink>
         </div>
         <ul className="navbar-menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><NavLink to='/'>AllBlogs</NavLink></li>
+            <li><NavLink to="/CreateBlog">Create</NavLink></li>
+            <li><NavLink to="/EditBlog">Edit</NavLink></li>
+            <li><NavLink to="/SingleBlog">SingleBlog</NavLink></li>
         </ul>
     </nav>
       

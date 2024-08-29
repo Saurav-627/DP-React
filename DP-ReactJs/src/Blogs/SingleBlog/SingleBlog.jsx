@@ -1,9 +1,11 @@
+import Navbar from "../ComponentsBlog/Navbar"
 
 
 const SingleBlog = () => {
   return (
     <div>
-      SigleBlogs
+      <Navbar />
+     <h1> Single Blogs</h1>
     </div>
   )
 }

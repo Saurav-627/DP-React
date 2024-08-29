@@ -14,6 +14,8 @@ const AllBlogs = () => {
     const response = await axios.get(
       "https://66cde3a18ca9aa6c8ccc1287.mockapi.io/Blogs"
     );
+
+    //status 200 xxa vane data leide vaneko . yedi status 404 thio vane error vanera bujum check status in google
     if(response.status === 200){
     const responseData = response.data;
     setBlogs(responseData);
