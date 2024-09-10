@@ -27,10 +27,12 @@ export const App = () => {
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<AllBlogs />} />
-      <Route path='/AllBlogs' element={<AllBlogs />} />
+      <Route path='/' element={<AllBlogs />} />
       <Route path='/SingleBlog' element={<SingleBlog />}/>
+      <Route path='/SingleBlog/:id' element={<SingleBlog />}/>
       <Route path='/CreateBlog' element={<CreateBlogs />}/>
       <Route path='/EditBlog' element={<EditBlogs />} />
+      <Route path='/EditBlog/:id' element={<EditBlogs />} />
     </Routes>
     </BrowserRouter>
 
