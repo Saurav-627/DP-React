@@ -27,6 +27,7 @@ export const App = () => {
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<AllBlogs />} />
+      <Route path='/AllBlogs' element={<AllBlogs />} />
       <Route path='/SingleBlog' element={<SingleBlog />}/>
       <Route path='/CreateBlog' element={<CreateBlogs />}/>
       <Route path='/EditBlog' element={<EditBlogs />} />
