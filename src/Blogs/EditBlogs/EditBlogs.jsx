@@ -4,16 +4,12 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
 const EditBlogs = () => {
-  const [blog, setBlog] = useState({
-    Title: "",
-    description: "",
-    image: "",
-  });
+  const [blog, setBlog] = useState({});
 
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const { Title, image, description } = blog;
+  const { Title, avatar, description } = blog;
 
   // Fetch data for a specific blog (replace with your blog ID)
   const fetchData = async () => {
@@ -22,11 +18,7 @@ const EditBlogs = () => {
         "https://66cde3a18ca9aa6c8ccc1287.mockapi.io/Blogs/" + id // Replace `1` with your blog ID
       );
       if (response.status === 200) {
-        setBlog({
-          Title: response.data.Title,
-          description: response.data.description,
-          image: response.data.avatar,
-        });
+        setBlog(response.data);
       }
     } catch (error) {
       console.error("Error fetching blog data", error);
@@ -49,7 +41,6 @@ const EditBlogs = () => {
         `https://66cde3a18ca9aa6c8ccc1287.mockapi.io/Blogs/${id}`,
         blog
       );
-      console.log(blog);
 
       if (response.status === 200) {
         console.log("Blog updated successfully", response.data);
@@ -123,7 +114,7 @@ const EditBlogs = () => {
       </div> */}
       <div className="max-w-xl mx-auto p-4 sm:p-6 md:p-8 bg-white rounded-xl shadow-md shadow-cyan-200 text-center">
         <h1 className="text-3xl font-bold mb-4">Edit Blog</h1>
-        <form>
+        <form onSubmit={handleEdit}>
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
@@ -144,7 +135,7 @@ const EditBlogs = () => {
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="image"
+              htmlFor="avatar"
             >
               Image
             </label>
@@ -161,10 +152,10 @@ const EditBlogs = () => {
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="text"
-              name="image"
+              name="avatar"
               id="image"
               placeholder="Enter image link"
-              value={image}
+              value={avatar}
               onChange={handleInputChange}
             />
           </div>
@@ -179,15 +170,14 @@ const EditBlogs = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="description"
               name="description"
-              value={description}
               placeholder="Enter content"
+              value={description}
               onChange={handleInputChange}
             />
           </div>
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
-            onClick={handleEdit}
           >
             Update Blog
           </button>

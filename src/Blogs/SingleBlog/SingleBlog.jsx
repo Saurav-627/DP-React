@@ -1,7 +1,7 @@
 // SingleBlog.js
 import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import { FaTrash,FaEdit } from "react-icons/fa";
+import { FaTrash, FaEdit } from "react-icons/fa";
 import Navbar from "../ComponentsBlog/Navbar";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
@@ -9,13 +9,9 @@ import axios from "axios";
 function SingleBlog() {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const [blog, setBlog] = useState({
-    title: "",
-    description: "",
-    image: "",
-  });
+  const [blog, setBlog] = useState({});
 
-  const { title, image, description } = blog;
+  const { Title, avatar, description } = blog;
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -25,11 +21,7 @@ function SingleBlog() {
     );
 
     if (response.status == 200) {
-      setBlog({
-        title: response.data.Title,
-        description: response.data.description,
-        image: response.data.avatar,
-      });
+      setBlog(response.data);
     }
   };
 
@@ -65,7 +57,7 @@ function SingleBlog() {
       if (response.status === 200) {
         console.log("Blog deleted successfully");
         navigate("/");
-        alert("Blog deleted Successfully")
+        alert("Blog deleted Successfully");
         // Optionally, you can redirect or update UI after deletion
       }
     } catch (error) {
@@ -92,20 +84,22 @@ function SingleBlog() {
         </div>
         <div className="w-full flex justify-center">
           <div className="card p-2 grid gap-2 w-1/2">
-            <img className="w-full rounded-lg" src={image} alt={title} />
+           <div className="w-full flex justify-center h-fit">
+            <img className="w-1/4 rounded-full" src={avatar} alt={Title} />
+            </div>
             <div className="container">
               <h6>
                 <b></b>
               </h6>
               <h6>
-                <b>Title: {title}</b>
+                <b>Title: {Title}</b>
               </h6>
               <p>Description: {description}</p>
               <div className="flex justify-end mt-4">
                 <button
                   className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline mr-2 text-sm"
                   type="button"
-                  onClick={() => navigate("/EditBlog/"+id)}
+                  onClick={() => navigate("/EditBlog/" + id)}
                 >
                   <FaEdit className="" /> Edit
                 </button>
