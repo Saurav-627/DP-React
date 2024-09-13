@@ -27,16 +27,16 @@ const AllBlogs = () => {
   }, []);
 
   return (
-    <div>
+    <div className="w-full">
       <Navbar />
 
-      <ul className="grid grid-cols-3 ">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
         {Blogs.map((curElem) => {
           return <Cards key={curElem.id} data={curElem} />;
         })}
       </ul>
 
-      {/* <ul className="grid grid-cols-3 ">
+      {/* <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
         {cardData.map((curElem) => {
           return <Cards key={curElem.id} data={curElem} />;
         })}

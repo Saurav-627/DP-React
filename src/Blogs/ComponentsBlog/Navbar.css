@@ -1,9 +1,10 @@
-.navbar {
+/* .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #333;
     padding: 10px 20px;
+    flex-wrap: wrap;
 }
 
 .navbar-logo a {
@@ -16,10 +17,12 @@
 .navbar-menu {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .navbar-menu li {
     margin-left: 20px;
+    margin-top: 10px;
 }
 
 .navbar-menu a {
@@ -27,9 +30,129 @@
     text-decoration: none;
     padding: 8px 16px;
     transition: background-color 0.3s ease;
+    display: inline-block;
 }
 
 .navbar-menu a:hover {
     background-color: #555;
     border-radius: 4px;
 }
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-menu {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .navbar-menu li {
+        margin-left: 0;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar-menu {
+        flex-direction: column;
+    }
+
+    .navbar-menu li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+} */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+  }
+  
+  .navbar-logo a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .navbar-menu {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .navbar-menu li {
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+  
+  .navbar-menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+  }
+  
+  .navbar-menu a:hover {
+    background-color: #555;
+    border-radius: 4px;
+  }
+  
+  .navbar-toggle {
+    display: none; /* Hide the toggle button by default */
+  }
+  
+  .navbar-toggle-icon {
+    font-size: 24px; /* Increase the font size of the toggle icon */
+  }
+  
+  @media screen and (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .navbar-logo{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+  
+    .navbar-menu {
+      margin-top: 10px;
+      width: 100%;
+      display: none; /* Hide the menu on smaller screens */
+    }
+  
+    .navbar-menu.active {
+      display: block; /* Show the menu when the toggle button is clicked */
+    }
+  
+    .navbar-toggle {
+      display: block; /* Show the toggle button on smaller screens */
+    }
+  
+    .navbar-menu li {
+      margin-left: 0;
+      margin-right: 20px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .navbar-menu {
+      flex-direction: column;
+    }
+  
+    .navbar-menu li {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }

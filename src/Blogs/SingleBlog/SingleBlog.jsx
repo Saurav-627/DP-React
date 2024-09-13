@@ -69,9 +69,9 @@ function SingleBlog() {
     <>
       <Navbar />
       <div className="max-w-7xl mx-auto p-4 sm:p-6 md:p-8 bg-white rounded-xl shadow-md">
-        <div className="flex justify-between mb-4">
-          <h1 className="text-3xl font-bold">Single Blog</h1>
-          <div className="flex items-center cursor-pointer">
+        <div className="flex flex-col sm:flex-row justify-between mb-4">
+          <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-0">Single Blog</h1>
+          <div className="flex items-center cursor-pointer w-full sm:w-auto">
             <FaSearch className="mr-2 text-gray-500" />
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -83,32 +83,32 @@ function SingleBlog() {
           </div>
         </div>
         <div className="w-full flex justify-center">
-          <div className="card p-2 grid gap-2 w-1/2">
+          <div className="card p-2 grid gap-2 w-full sm:w-3/4 md:w-2/3 lg:w-1/2">
            <div className="w-full flex justify-center h-fit">
-            <img className="w-1/4 rounded-full" src={avatar} alt={Title} />
+            <img className="w-1/2 sm:w-1/3 md:w-1/4 rounded-full" src={avatar} alt={Title} />
             </div>
             <div className="container">
               <h6>
                 <b></b>
               </h6>
-              <h6>
+              <h6 className="text-lg sm:text-xl md:text-2xl">
                 <b>Title: {Title}</b>
               </h6>
-              <p>Description: {description}</p>
+              <p className="text-sm sm:text-base md:text-lg">Description: {description}</p>
               <div className="flex justify-end mt-4">
                 <button
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline mr-2 text-sm"
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 sm:px-4 rounded focus:outline-none focus:shadow-outline mr-2 text-xs sm:text-sm"
                   type="button"
                   onClick={() => navigate("/EditBlog/" + id)}
                 >
-                  <FaEdit className="" /> Edit
+                  <FaEdit className="inline mr-1" /> Edit
                 </button>
                 <button
-                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded focus:outline-none focus:shadow-outline text-sm"
+                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 sm:px-3 rounded focus:outline-none focus:shadow-outline text-xs sm:text-sm"
                   type="button"
                   onClick={handleDelete}
                 >
-                  <FaTrash className="mr-2" /> Delete
+                  <FaTrash className="inline mr-1" /> Delete
                 </button>
               </div>
             </div>

@@ -9,16 +9,16 @@ const Cards = ({data}) => {
 
   return (
  
-    <div className="card p-2 grid gap-2">
+    <div className="card p-2 sm:p-3 md:p-4 grid gap-2 sm:gap-3 md:gap-4">
       <img className="w-full rounded-lg" src={avatar} alt={Title} />
       <div className="container">
-      <h6><b>{createdAt}</b></h6>
-        <h6>
+        <h6 className="text-sm sm:text-sm md:text-md"><b>{createdAt}</b></h6>
+        <h6 className="text-base sm:text-sm md:text-md">
           <b>Title: {Title}</b>
         </h6>
-        <p>Description: {description}</p>
+        <p className="text-sm sm:text-sm md:text-md">Description: {description}</p>
       </div>
-       <p className="text-center rounded-sm p-4 cursor-pointer hover:text-cyan-600" onClick={()=>navigate(`SingleBlog/${id}`)}>See More</p>
+      <p className="text-center rounded-sm p-2 sm:p-3 md:p-4 text-sm sm:text-base md:text-lg cursor-pointer hover:text-cyan-600" onClick={()=>navigate(`SingleBlog/${id}`)}>See More</p>
     </div>
 
   );
